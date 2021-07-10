@@ -61,7 +61,7 @@ socials:
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-remote_theme: choohubert/hubert-jekyll-theme
+remote_theme: hubertchoo/hubert-jekyll-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
