@@ -1,6 +1,5 @@
 ---
 layout: index
-title: Hello World, I'm Hubert!
 my_name: Hi, I'm Hubert!
 my_description: EEE Undergrad at Imperial College London. <br> hobbyist developer, and avid sports fan
 profilepic_path: my_photo.png
