@@ -53,6 +53,8 @@ socials:
     username:
     link:
 
+google_analytics_id: G-8T4TE8JBKP
+
 # Build settings
 # theme: custom_jekyll_theme
 plugins:
