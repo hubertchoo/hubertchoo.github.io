@@ -22,7 +22,7 @@ title: Hubert Choo
 email: hjc.choo@gmail.com
 tagline:
 description: >- # this means to ignore newlines until "baseurl:"
-  Hi, I'm Hubert, currently an EEE Undergraduate at Imperial College London.
+  Hi, I'm Hubert, an EEE Undergraduate at Imperial College London.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
