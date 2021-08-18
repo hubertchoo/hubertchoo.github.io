@@ -193,17 +193,17 @@ function createImageBoard(imageURL, desiredHeight, positionX, positionY, positio
     });
 } 
 // ABOUT ME
-createImageBoard("/image_boards/hi_im_hubert_v2.png", 40, 1440, 0, -735, -.35);
-createImageBoard("/image_boards/github.png", 20, 1570, 0, -540, .45);
-createImageBoard("/image_boards/email.png", 20, 1445, 0, -265, -.35);
+createImageBoard("image_boards/hi_im_hubert_v2.png", 40, 1440, 0, -735, -.35);
+createImageBoard("image_boards/github.png", 20, 1570, 0, -540, .45);
+createImageBoard("image_boards/email.png", 20, 1445, 0, -265, -.35);
 
 // EDUCATION AND EXPERIENCE
-createImageBoard("/image_boards/experience.png", 20, 1510, 40, 130, 0);
-createImageBoard("/image_boards/rvhs.png", 50, 1430, 0, 550, 0);
-createImageBoard("/image_boards/dso_ascii.png", 50, 1300, 0, 1050, -0.4);
-createImageBoard("/image_boards/saf.png", 20, 800, 0, 1000, -1.5);
-createImageBoard("/image_boards/dsta.png", 40, 750, 0, 520, 2.5);
-createImageBoard("/image_boards/icl.png", 50, 600, 0, 35, -2.6);
+createImageBoard("image_boards/experience.png", 20, 1510, 40, 130, 0);
+createImageBoard("image_boards/rvhs.png", 50, 1430, 0, 550, 0);
+createImageBoard("image_boards/dso_ascii.png", 50, 1300, 0, 1050, -0.4);
+createImageBoard("image_boards/saf.png", 20, 800, 0, 1000, -1.5);
+createImageBoard("image_boards/dsta.png", 40, 750, 0, 520, 2.5);
+createImageBoard("image_boards/icl.png", 50, 600, 0, 35, -2.6);
 
 // Image Board with Video 
 // Video Position is from (0, 0) to (1, 1) aka bottom left to top right
@@ -238,30 +238,14 @@ function createImageBoardWithVideo(imageURL, desiredHeight, positionX, positionY
     });
 }
 // MY PROJECTS
-createImageBoard("/image_boards/my_projects.png", 20, 675, 40, -685, -3.1415);
-createImageBoardWithVideo("/image_boards/scribble.png", 50, 660, 0, -1385, -3, "/video_boards/scribble.mp4", 25, 0.5, 0.5);
-createImageBoard("/image_boards/workoutbuddy_mockup.png", 50, 10, 0, -1525, -1.5);
-createImageBoardWithVideo("/image_boards/handmeshrecorder.png", 50, -65, 0, -1025, .3, "/video_boards/handmeshrecorderv2.mp4", 25, 0.75, 0.5);
-createImageBoardWithVideo("/image_boards/holosandbox.png", 50, -235, 0, -625, -.3, "/video_boards/holosandboxv2.mp4", 25, 0.72, 0.5);
+createImageBoard("image_boards/my_projects.png", 20, 675, 40, -685, -3.1415);
+createImageBoardWithVideo("image_boards/scribble.png", 50, 660, 0, -1385, -3, "video_boards/scribble.mp4", 25, 0.5, 0.5);
+createImageBoard("image_boards/workoutbuddy_mockup.png", 50, 10, 0, -1525, -1.5);
+createImageBoardWithVideo("image_boards/handmeshrecorder.png", 50, -65, 0, -1025, .3, "video_boards/handmeshrecorderv2.mp4", 25, 0.75, 0.5);
+createImageBoardWithVideo("image_boards/holosandbox.png", 50, -235, 0, -625, -.3, "video_boards/holosandboxv2.mp4", 25, 0.72, 0.5);
 //createVideoBoard("/video_boards/reactionwheelactuator.mp4", 25, -75, 15, -110, 0.35, true);
-createImageBoard("/image_boards/website_mockup.png", 50, -100, 0, 575, 0.3);
-createImageBoard("/image_boards/the_end.jpg", 50, -545, 0, 1070, -1.55);
-
-
-/*
-createImageBoard("/image_boards/workoutbuddy_mockup.png", 50, 660, 0, -1385, -3);
-createImageBoard("/image_boards/workoutbuddy_mockup.png", 50, 10, 0, -1525, -1.5);
-createImageBoard("/image_boards/workoutbuddy_mockup.png", 50, -65, 0, -1025, .3);
-createImageBoard("/image_boards/workoutbuddy_mockup.png", 50, -235, 0, -625, -.3);
-createImageBoard("/image_boards/workoutbuddy_mockup.png", 50, -75, 0, -110, .35);
-createImageBoard("/image_boards/workoutbuddy_mockup.png", 50, -100, 0, 575, .3);
-*/
-//createImageBoardWithVideo("/image_boards/scribble.png", 50, 660, 0, -1385, -3, "/video_boards/scribble.mp4", 25, 0.5, 0.5);
-//createImageBoardWithVideo("/image_boards/scribble.png", 50, 10, 0, -1525, -1.5, "/video_boards/scribble.mp4", 25, 0.5, 0.5);
-//createImageBoardWithVideo("/image_boards/scribble.png", 50, -65, 0, -1025, .3, "/video_boards/scribble.mp4", 25, 0.5, 0.5);
-//createImageBoardWithVideo("/image_boards/scribble.png", 50, -235, 0, -625, -.3, "/video_boards/scribble.mp4", 25, 0.5, 0.5);
-//createImageBoardWithVideo("/image_boards/scribble.png", 50, -75, 0, -110, .35, "/video_boards/scribble.mp4", 25, 0.5, 0.5);
-//createImageBoardWithVideo("/image_boards/scribble.png", 50, -100, 0, 575, .3, "/video_boards/scribble.mp4", 25, 0.5, 0.5);
+createImageBoard("image_boards/website_mockup.png", 50, -100, 0, 575, 0.3);
+createImageBoard("image_boards/the_end.jpg", 50, -545, 0, 1070, -1.55);
 
 // TRACK ARROW KEYS
 var keymap = {};
