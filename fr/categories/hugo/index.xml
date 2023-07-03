@@ -6,12 +6,4 @@ appropriée à votre système d&amp;rsquo;exploitation et votre architecture.&lt
 &lt;p>Sauvegardez le fichier téléchargé à un endroit précis, afin de l&amp;rsquo;utiliser dans
 l&amp;rsquo;étape suivante.&lt;/p>
 &lt;p>Des informations plus complètes sont disponibles sur la page
-&lt;a href="https://hubertchoo.github.io/overview/installing/">installing hugo&lt;/a>&lt;/p></description></item><item><title>Migrer vers Hugo depuis Jekyll</title><link>https://hubertchoo.github.io/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>https://hubertchoo.github.io/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/</guid><description>&lt;h2 id="déplacez-le-contenu-statique-vers-static">Déplacez le contenu statique vers &lt;code>static&lt;/code>&lt;/h2>
-&lt;p>Jekyll a une règle comme quoi tout répertoire qui ne commence pas par &lt;code>_&lt;/code> sera
-copié tel-quel dans le répertoire &lt;code>_site&lt;/code>. Hugo garde tout le contenu statique
-dans le répertoire &lt;code>static&lt;/code>. Vous devez donc déplacer tout ce type de contenu
-là-dedans. Avec Jekylll, l&amp;rsquo;arborescence ressemblant à ceci :&lt;/p>
-&lt;pre>&lt;code>▾ &amp;lt;root&amp;gt;/
-▾ images/
-logo.png
-&lt;/code>&lt;/pre></description></item></channel></rss>
+&lt;a href="https://hubertchoo.github.io/overview/installing/">installing hugo&lt;/a>&lt;/p></description></item></channel></rss>
