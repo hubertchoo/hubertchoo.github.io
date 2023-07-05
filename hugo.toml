@@ -133,6 +133,7 @@ disableHugoGeneratorInject = false
     msapplication = "#1b1c1d"
     theme = "#1b1c1d"
 
+
   [params.logo]
     logoMark     = ">"
     logoText     = "$ cd ~"
