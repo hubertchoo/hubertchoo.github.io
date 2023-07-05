@@ -135,7 +135,7 @@ disableHugoGeneratorInject = false
 
   [params.logo]
     logoMark     = ">"
-    logoText     = "$ cd /home/"
+    logoText     = "$ cd ~"
     logoHomeLink = "/"
     # Set true to remove the logo cursor entirely.
     # logoCursorDisabled = false
@@ -158,11 +158,11 @@ disableHugoGeneratorInject = false
   #   url = ""
 
   # Uncomment this if you want a portrait on your start page
-  #
+  
     [params.portrait]
-     path     = "/img/image.jpg"
+     path     = "/img/profile_pic.jpg"
      alt      = "Portrait"
-     maxWidth = "50px"
+     maxWidth = "200px"
 
   # Social icons
 
