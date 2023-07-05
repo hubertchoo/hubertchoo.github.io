@@ -32,15 +32,17 @@ winget install Hugo.Hugo.Extended
 
 Follow this [guide](https://carpentries-incubator.github.io/blogging-with-hugo-and-github-pages/02-locally-setup-hugo/index.html) to set up Github Pages for use with Hugo.
 
-A Github Action is also set up to deploy the website automatically with new pushes.
-
 The Hugo theme [Hello Friend NG](https://github.com/rhazdon/hugo-theme-hello-friend-ng) is used. Configuration settings for the Hugo theme is also in the link.
 
-## Step 3. Creating a New Post
+## Step 3. Set Up Github Action for Deployment
+
+Instead of instructions from the above link, the [following Github Action](https://gohugo.io/hosting-and-deployment/hosting-on-github/) is set up to auto-deploy on push.
+
+## Step 4. Creating a New Post
 
 Create a new md file in the directory /posts/___.md.
 
-## Step 4. Preview the Website Before Pushing
+## Step 5. Preview the Website Before Pushing
 
 Do 
 ``` sh
