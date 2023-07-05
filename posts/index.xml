@@ -8,7 +8,6 @@ Design and build a balancing rover (Segway), that can autonomously navigate and 
 <li>Finally, the shortest path through the maze should be computed and followed.</li>
 </ol>
 <p>A prototype of the design must be built and tested on the artificial maze in the lab. The maze is laid out with light strips on an arena. The arena is coloured black and surrounded by black curtains.</p>
-<p><img src="img/summer_proj_maze.png" alt="Maze Image"></p>
 ]]></content></item><item><title>My Boards and My Software</title><link>https://hubertchoo.github.io/posts/2023/07/my-boards-and-my-software/</link><pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate><guid>https://hubertchoo.github.io/posts/2023/07/my-boards-and-my-software/</guid><description>The FPGA Boards I Use DE10-Lite MAX10 10M50DAF484C7G Device DE10-Nano Intel Cyclone® V SE 5CSEBA6U23I7 device 800MHz Dual-core ARM Cortex-A9 hard processor The Daughter Boards I Use D8M-GPIO 8 Mega Pixel Digital Camera Package with GPIO interface The Software I Use Quartus Prime Lite 18.1 NIOS II Embedded Design Suite (EDS) ModelSim - Intel FPGA Starter Edition 10.5b</description><content type="html"><![CDATA[<h2 id="the-fpga-boards-i-use">The FPGA Boards I Use</h2>
 <ol>
 <li><a href="https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&amp;No=1021">DE10-Lite</a></li>
