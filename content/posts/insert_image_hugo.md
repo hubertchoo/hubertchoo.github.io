@@ -21,3 +21,7 @@ series = ["Hugo 101"]
 ## Inserting an Image into a Hugo Post
 
 See [here](https://stackoverflow.com/questions/71501256/how-to-insert-an-image-in-my-post-on-hugo)
+
+## Centering and Styling the Image
+
+See [here](https://discourse.gohugo.io/t/how-to-set-image-center/20103/4)
