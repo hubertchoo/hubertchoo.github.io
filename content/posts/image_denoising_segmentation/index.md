@@ -8,7 +8,7 @@ tags = [
     "video",
     "image",
 ]
-date = "2023-07-05 10:00:00"
+date = "2023-07-05"
 categories = [
     "FPGA",
 ]
@@ -27,5 +27,5 @@ For the Imperial EEE Department, the Y2 Summer Term project was to:
 
 A prototype of the design must be built and tested on the artificial maze in the lab. The maze is laid out with light strips on an arena. The arena is coloured black and surrounded by black curtains.
 
-![Maze Image](/img/summer_proj_maze.png#center)
+![Maze Image](img/summer_proj_maze.png)
 

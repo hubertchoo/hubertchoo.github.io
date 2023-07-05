@@ -6,7 +6,7 @@ tags = [
     "fpga",
     "learning",
 ]
-date = "2023-07-03"
+date = "2023-07-04"
 categories = [
     "FPGA",
 ]
