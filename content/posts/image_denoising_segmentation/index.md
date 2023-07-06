@@ -7,6 +7,8 @@ tags = [
     "development",
     "video",
     "image",
+    "DE10-Lite",
+    "D8M-GPIO",
 ]
 date = "2023-07-05 10:00:00"
 categories = [
