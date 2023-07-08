@@ -101,7 +101,7 @@ disableHugoGeneratorInject = false
   # linking local files with their path relative to the static folder, e.g. "css/styles.css"
   #
   customCSS = ["/css/styles.css"]
-  customJS  = ["/js/tex-mml-chtml.js"]
+  customJS  = []
 
   # Toggle this option need to rebuild SCSS, requires extended version of Hugo
   #
