@@ -18,6 +18,23 @@ series = ["Hugo 101"]
   name = "Hubert Choo"
 +++
 
-## Inserting Math Expressions into a Hugo Post
+## 1. Make a local copy of layouts/partials/header.html
 
-See [here](https://www.mrnice.dev/posts/how-to-add-math-expressions-to-hugo-blog-the-shortest-guide-possible/)
+This local copy will overwrite the copy in the theme when being built.
+
+## 2. Insert the following code block at the top of the local copy of layouts/partials/header.html
+
+```html
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+        }
+    });
+</script>
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+```

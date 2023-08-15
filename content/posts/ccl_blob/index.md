@@ -7,8 +7,6 @@ tags = [
     "development",
     "video",
     "image",
-    "DE10-Lite",
-    "D8M-GPIO",
 ]
 date = "2023-07-07"
 categories = [
@@ -48,7 +46,7 @@ However, the multipass, one-pass, and two-pass algorithms do not translate well 
 "Jablonski and Gorgon [10] have implemented the classic two-pass connected component labelling on an FPGA. In doing so, they were able to take advantages of the parallelism offered by FPGA-based processing to gain considerable processing efficiencies over a standard serial algorithm. However, their two-pass algorithm still requires the image to be buffered for the 
 second pass, and requires two clock cycles per pixel plus a small overhead for region merging."
 
-TODO:
+This was part of my summer internship work at DSO National Labs, Singapore. Contact me for more discussion!
 
 ## Blob Detection
 In computer vision, blob detection methods are aimed at detecting regions in a digital image that differ in properties, such as brightness or color, compared to surrounding regions. Informally, a blob is a region of an image in which some properties are constant or approximately constant; all the points in a blob can be considered in some sense to be similar to each other.
@@ -59,26 +57,40 @@ An example of blob detection:
 ### A Very Short Explanation of the 2D Blob Detection Algorithm
 
 #### Choice of Convolution Kernel
-The Normalised Laplacian of Gaussian (NLOG), a circularly symmetric operator, is selected as the convolution kernel for blob detection in 2D. It must be **normalised** so that the filter response is insensitive to the scale of $\sigma$
+
+##### 1. Normalised Laplacian of Gaussian (NLoG)
+The Normalised Laplacian of Gaussian (NLOG), a circularly symmetric operator, is selected as the convolution kernel for blob detection in 2D. It must be **normalised** so that the filter response is insensitive to the scale of $\sigma$. $\sigma$ determines the scale of the Gaussian kernel / sliding window. 
 
 $$
-\text{{LoG}}(x, y) = \frac{1}{2\pi \sigma^2} \left( \frac{x^2 + y^2 - 2\sigma^2}{\sigma^4} \right) \exp\left( -\frac{x^2 + y^2}{2\sigma^2} \right)
+\text{LoG}(x, y) = \sigma^2 \left(\frac{{\partial^2}}{{\partial x^2}} \left( G(x, y) \right) + \frac{{\partial^2}}{{\partial y^2}} \left( G(x, y) \right)\right)
 $$
 
+An example of a LoG kernel:
+![LoG Kernel](img/Laplacian-of-Gaussian-Filter.png#center)
+
+##### 2. Difference of Gaussian (DoG)
+While the DoG and NLoG both serve a similar purpose, there are a few factors that make the DoG approach more commonly used in practice.
+
+Efficiency: The DoG technique is computationally more efficient compared to the LoG approach. The LoG involves convolving the image with a Gaussian filter at multiple scales and then computing the Laplacian operator to identify blobs. On the other hand, the DoG computes the difference between two adjacent scales of the blurred images, which requires fewer computations. This efficiency advantage makes the DoG approach more suitable for real-time or resource-constrained applications.
+
 $$
-\text{LoG}(x, y) = \frac{{\partial^2}}{{\partial x^2}} \left( G(x, y) \right) + \frac{{\partial^2}}{{\partial y^2}} \left( G(x, y) \right)
+\text{DoG}(x, y) = \left( G(x, y, k_1\sigma) - G(x, y, k_2\sigma) \right)
 $$
 
 
+![DoG vs NLoG](img/dog_vs_nlog.png#center)
 
-Resources:
+#### Computing a Scale Space and Find the Characteristic Scale
+Pixels are processed left-to-right, top-to-bottom. For a given pixel, compute the result of NLoG or DoG by convolution using a variety of scale/$\sigma$ values. These values form up the scale space, a function of parameters x, y, $\sigma$. Find the maxima or peak points of the NLoG or DoG response in the scale space. The x and y values give the position of the blob, while the value of $\sigma$ is known as the characteristic scale of the blob (which is proportional to the radius of the blob in the image).
+
+![Characteristic Scale](img/characteristic_scale.png#center)
+
+The values of $\sigma$ selected to generate the scale space is given by:
+$$\sigma_k = \sigma_0 s^k$$
+where $k = 0, 1, 2, 3,...$
+
+#### Some Resources for Blob Detection:
 
 [A set of good slides](https://www.cse.psu.edu/~rtc12/CSE586/lectures/featureExtractionPart2_6pp.pdf)
 
 [A good video explanation](https://www.youtube.com/watch?v=zItstOggP7M)
-
-
-
- [Connected Component Labelling Wiki]()
-
- [FPGA based Connected Component Labeling](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4406746)
