@@ -18,14 +18,18 @@ series = ["Field Programmable Gate Arrays"]
 
 ## Latches and Flip-Flops
 
+A latch or flip flop in digital electronics is a circuit with two stable states that can be used to store binary data. The stored data can be changed by applying varying inputs.
+
 Latches are basic storage elements that operate with signal levels (rather than signal transitions). Latches are useful for the design of the asynchronous sequential circuit.
 
-Latches controlled by a clock transition are flip-flops. Flip-flops are useful for the design of synchronous sequential circuits.
+A latch is level-triggered, while a flip flop is edge-triggered. Flip-flops are useful for the design of synchronous sequential circuits as they can be triggered by a clock edge.
 
 ### Latches
-There are two kinds of latches:
+There are various kinds of latches:
 1. Set-Reset (S-R) Latch
-2. Data (D) Latch
+2. J-K Latch
+3. Data (D) Latch
+4. Toggle (T) Latch
 
 #### S-R Latch
 The S-R Latch is implemented using two inputs: S (Set) and R (Reset). The S input sets the output to 1, while the R input resets the output to 0. When both S and R are at 1, the latch is said to be in an “undefined” state.
@@ -39,6 +43,12 @@ The S-R Flip Flop has an additional clock signal on top of the S and R signals. 
 
 ![SR Latch](img/sr_latch.png#center)
 
+#### J-K Latch
+The J-K latch is very similar to the S-R latch. While also having set and reset outputs, the J-K latch has a combination of inputs that toggles the output of the latch. This replacecs the 'Invalid' output of the S-R latch.
+
+![JK Latch](img/jk_truthtable.gif#center)
+
+
 #### D Latch
 D latches are also known as transparent latches and are implemented using two inputs: D (Data) and an Enable signal. The output of the latch follows the input at the D terminal as long as the Enable signal is high. When the Enable signal goes low, the output of the latch is stored and held until the Enable signal is high again. 
 
@@ -46,13 +56,18 @@ Note that the D flip flop is not just a direct substitution of a clock signal fo
 
 ![D Latch](img/d_latch.png#center)
 
+#### T Latch
+When the T input is high, the output state is toggled.
+
+![T Latch](img/t_latch.jpg#center)
+
 ### Advantages and Disadvantages of Latches 
 From [here](https://www.geeksforgeeks.org/latches-in-digital-logic/):
 
 Advantages of Latches:
 1. Easy to Implement: Latches are simple digital circuits that can be easily implemented using basic digital logic gates.
 2. Low Power Consumption: Latches consume less power compared to other sequential circuits such as flip-flops.
-3. High Speed: Latches can operate at high speeds, making them suitable for use in high-speed digital systems.
+3. High Speed: Latches can operate at high speeds, making them suitable for use in high-speed digital systems. This is because they are asynchronous and the CLK signal is not needed.
 4. Low Cost: Latches are inexpensive to manufacture and can be used in low-cost digital systems.
 5. Versatility: Latches can be used for various applications, such as data storage, control circuits, and flip-flop circuits.
 
@@ -60,3 +75,15 @@ Disadvantages of Latches:
 1. No Clock: Latches do not have a clock signal to synchronize their operations, making their behavior unpredictable.
 2. Unstable State: Latches can sometimes enter into an unstable state when both inputs are at 1. This can result in unexpected behavior in the digital system.
 3. Complex Timing: The timing of latches can be complex and difficult to specify, making them less suitable for real-time control applications.
+
+
+## Flip Flops
+
+
+
+### Types of Flip Flops
+1. JK FF
+2. D FF
+3. T FF
+4. SR FF
+

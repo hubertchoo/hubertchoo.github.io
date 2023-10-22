@@ -44,6 +44,8 @@ A synchronizer is a device that receives an asynchronous input D and a clock CLK
 
 A simple way to build a synchronizer is out of two flip-flops. F1 samples D on the rising edge of CLK. If D is changing at that time, the output D2 may be momentarily metastable. If the clock period is long enough, D2 will, with high probability, resolve to a valid logic level before the end of the period. F2 then samples D2, which is now stable, producing a good output Q.
 
+For this synchroniser design, we need the following criteria to be met: the source clock domain is slower than destination clock domain. By satisfying this criteria we can be sure that the destination clock captures any possible changes in signal without loss.
+
 We say that a synchronizer fails if Q, the output of the synchronizer, becomes metastable. This may happen if D2 has not resolved to a valid level by the time it must setup at F2 — that is, if $t_{res} > T_c − t_{setup}$. According to above, the probability of failure for a single input change at a random time is:
 
 $$P(failure) = \frac{T_0}{T_c}e^{-\frac{T_c - t_{setup}}{\tau}} $$
@@ -62,3 +64,14 @@ The MTBF improves exponentially as the synchronizer waits for a longer time $T_c
 One of the most common way to handle Clock Domain Crossing (CDC) is usage of synchronizer circuits. Synchronizer circuits purpose is to minimize the probability of the metastability and increase MTBF.
 
 More Clock Domain Crossing techniques can be found [here](https://hardwarebee.com/clock-domain-crossing-techniques-for-fpga/). There are also inbuilt primitives which can be used for taking care of CDCs for Xilinx devices.
+
+#### Crossing from slower clock domain to faster clock domain
+The 'double flop' (using two flip flops) is a simple and commonly used method to cross from a slower to faster clock domain when taking in signals from outside the FPGA.
+
+Others can also be found in the link above.
+
+#### Crossing from faster clock dommain to slower clock domain
+In this situation, the data inside the fast clock domain might change before the slow clock domain even sees it. In order to transfer a signal from a fast clock domain to a slow clock domain, we must stretch out the signal so that the slower clock domain will not miss the signal.
+
+#### Something that can be used for both slow-to-fast and fast-to-slow clock domain transitions
+The FIFO can be used to send data between two clock domains regardless of their speeds, and when large data transfer is needed. Read the FIFO post for more information.
