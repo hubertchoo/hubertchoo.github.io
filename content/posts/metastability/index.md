@@ -18,6 +18,16 @@ series = ["Digital Electronics"]
 ## Metastability
 When the input to a flip flop happens between $t_{setup}$ and $t_{hold}$ (also known as the aperture time) of the rising CLK edge, the output Q may momentarily take on a voltage between 0 and VDD that is in the forbidden zone. This is called a metastable state. Eventually, the flip-flop will resolve the output to a stable state of either 0 or 1. However, the resolution time required to reach the stable state is unbounded.
 
+### What is the reason for the existence of the set-up and hold time?
+
+A master–slave D flip-flop is created by connecting two gated D latches in series, and inverting the enable input to one of them (the first D latch has its enable input set as NOTCLOCK). 
+
+The set-up time is present because there is propogation delay of the first D latch. There has to be sufficient time for the first D latch latch the signal while the CLK is low, before the second D latch can latch the signal once the CLK signal becomes high. This is the origin of the set-up time.
+
+The hold time requirement comes from the propogation delay of the NOT gate for the CLK cycle for the first D latch. While the CLK switches from low to high, the NOT CLK switches from high to low only after the propogation delay of the NOT gate, not at the exact same time. Hence, the input should not be changed at this time, the first D latch still acts as transparent before its enable signal has changed, causing the output of the flipflop to be metastable.
+
+https://www.youtube.com/watch?v=3_GDoBc7JdU
+
 ### Resolution Time
 If the input to a flip flop changes outside the aperture, then $t_{res}$ = $t_{pcq}$ (Clock-to-Q propogation delay). But if the input happens to change within the aperture, $t_{res}$ can be substantially longer.
 
