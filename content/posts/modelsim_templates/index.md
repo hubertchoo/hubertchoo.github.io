@@ -138,3 +138,162 @@ A few lines to note:
 - `integer i` used to iterate through data read array
 - The setting up of the clock signal in the initial block
 - The use of `repeat` to count the number of loops to make
+
+## Sample of a self-checking + randomising testbench for combinatorial circuit:
+
+The module file:
+
+``` verilog
+`timescale 1ns / 1ps
+
+module adder(
+    input logic [3:0] a, b,
+    output logic [4:0] sum
+    );
+    
+    assign sum = a + b;
+    
+endmodule
+
+```
+
+The testbench file with self checking + randomising:
+
+``` verilog
+`timescale 1ns / 1ps
+
+module adder_tb();
+    
+    logic [3:0] a_in;
+    logic [3:0] b_in;
+    logic [4:0] result_out;
+    logic [4:0] true_result;
+    
+    adder dut(a_in, b_in, result_out);
+    
+    localparam period = 10;
+    
+    initial begin
+        repeat(10) begin
+            a_in = $urandom_range(7, 0);
+            b_in = $urandom_range(7, 0);
+            true_result = a_in + b_in;
+            #period;
+            $display(result_out);
+            $display(true_result);
+            
+            if (result_out != true_result) begin
+                $error("Incorrect Output");
+            end
+            
+        end
+        
+        $display("Test passed");
+        $finish;
+
+    end
+    
+endmodule
+
+```
+
+## Sample of a self-checking + randomising testbench for sequential circuit:
+
+The module file:
+
+``` verilog
+`timescale 1ns / 1ps
+
+module adder(
+    input logic clk,
+    input logic [3:0] a, b,
+    output logic [4:0] sum
+    );
+    
+    always_ff @(posedge clk) begin
+        sum <= a + b;
+    end
+    
+    
+endmodule
+
+```
+
+The testbench file with self checking + randomising:
+
+``` verilog
+`timescale 1ns / 1ps
+
+module adder_tb();
+    
+    logic clk;
+    logic rst;
+    logic [3:0] a_in;
+    logic [3:0] b_in;
+    logic [4:0] result_out;
+    logic [4:0] true_result;
+    
+    localparam period = 10;
+    
+    adder dut(clk, rst, a_in, b_in, result_out);
+    
+    initial begin
+        clk = 0;
+        rst = 1;
+        repeat(4) #(period/2) clk=~clk;
+        rst = 0;
+        forever #(period/2) clk=~clk;
+     end
+     
+     initial begin
+        a_in = 0;
+        b_in = 0;
+        //result_out = 0;
+        true_result = 0;
+        
+        // wait for rst
+        @(negedge rst);
+        
+        repeat (50) @(posedge clk) begin
+            true_result = a_in + b_in; // do this before reassigning to show correct order
+            #(1)
+            a_in = $urandom_range(7, 0);
+            b_in = $urandom_range(7, 0);
+            
+            $display("Result out:", result_out);
+            $display("True Result:", true_result);
+            $display("\n");
+            
+        end
+        
+    end
+    
+endmodule
+
+```
+
+### Some examples of randomiser functions in SV:
+
+#### $urandom( ) and $random( )
+
+eg. variable = $urandom(seed); //seed is an optional argument
+
+#### $urandom_range()
+
+The $urandom_range() function returns an unsigned integer within a specified range.
+
+variable = $urandom_range( int unsigned maxval, int unsigned minval = 0 );
+
+#### std::randomise()
+
+Variables can be randomized by using std::randomize method. It can accept the inline constraints using the “with” clause.
+
+std::randomize (variable);
+std::randomize (variable) with { constraint's; };
+
+std::randomize (variable-1, variable-2 ... variable-n);
+std::randomize (variable-1, variable-2 ... variable-n) with { constraint's; };
+
+eg std::randomize(data,data_x_4) with { data     == addr * 8; 
+                                         data_x_4 == data * 4;   
+                                     };
